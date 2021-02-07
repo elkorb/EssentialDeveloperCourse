@@ -108,8 +108,8 @@
 			isa = PBXGroup;
 			children = (
 				6A8C9A7B25CF59BD000417EF /* RemoteFeedLoader.swift */,
-				6A8C9AC325D005F1000417EF /* HTTPClient.swift */,
 				6A8C9AC725D0064F000417EF /* FeedItemsMapper.swift */,
+				6A8C9AC325D005F1000417EF /* HTTPClient.swift */,
 			);
 			path = "Feed API";
 			sourceTree = "<group>";
