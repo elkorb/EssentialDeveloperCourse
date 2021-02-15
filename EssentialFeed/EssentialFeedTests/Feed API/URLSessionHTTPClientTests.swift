@@ -28,7 +28,7 @@ class URLSessionHTTPClientTests: XCTestCase {
 			exp.fulfill()
 		}
 		makeSUT().get(from: url) { _ in exp.fulfill() }
-		wait(for:[exp],timeout: 0.001)
+		wait(for:[exp],timeout: 0.1)
 	}
 	
 	func test_getFromURL_failOnRequestError() {
