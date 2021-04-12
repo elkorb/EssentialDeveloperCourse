@@ -8,10 +8,10 @@
 
 /* Begin PBXBuildFile section */
 		1CE27749261528B500A93723 /* EssentialFeed.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1CE2773F261528B500A93723 /* EssentialFeed.framework */; };
-		1CE2774E261528B500A93723 /* EssentialFeedTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CE2774D261528B500A93723 /* EssentialFeedTests.swift */; };
 		1CE27750261528B500A93723 /* EssentialFeed.h in Headers */ = {isa = PBXBuildFile; fileRef = 1CE27742261528B500A93723 /* EssentialFeed.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		1CE2775C26152B2600A93723 /* FeedItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CE2775B26152B2600A93723 /* FeedItem.swift */; };
 		1CE2776026152C3200A93723 /* FeedLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CE2775F26152C3200A93723 /* FeedLoader.swift */; };
+		1CE277692624F66700A93723 /* RemoteFeedLoaderTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CE277682624F66700A93723 /* RemoteFeedLoaderTests.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -29,10 +29,10 @@
 		1CE27742261528B500A93723 /* EssentialFeed.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = EssentialFeed.h; sourceTree = "<group>"; };
 		1CE27743261528B500A93723 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		1CE27748261528B500A93723 /* EssentialFeedTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = EssentialFeedTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		1CE2774D261528B500A93723 /* EssentialFeedTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EssentialFeedTests.swift; sourceTree = "<group>"; };
 		1CE2774F261528B500A93723 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		1CE2775B26152B2600A93723 /* FeedItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedItem.swift; sourceTree = "<group>"; };
 		1CE2775F26152C3200A93723 /* FeedLoader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedLoader.swift; sourceTree = "<group>"; };
+		1CE277682624F66700A93723 /* RemoteFeedLoaderTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RemoteFeedLoaderTests.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -85,8 +85,8 @@
 		1CE2774C261528B500A93723 /* EssentialFeedTests */ = {
 			isa = PBXGroup;
 			children = (
-				1CE2774D261528B500A93723 /* EssentialFeedTests.swift */,
 				1CE2774F261528B500A93723 /* Info.plist */,
+				1CE277682624F66700A93723 /* RemoteFeedLoaderTests.swift */,
 			);
 			path = EssentialFeedTests;
 			sourceTree = "<group>";
@@ -165,6 +165,7 @@
 					};
 					1CE27747261528B500A93723 = {
 						CreatedOnToolsVersion = 12.4;
+						LastSwiftMigration = 1240;
 					};
 				};
 			};
@@ -218,7 +219,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				1CE2774E261528B500A93723 /* EssentialFeedTests.swift in Sources */,
+				1CE277692624F66700A93723 /* RemoteFeedLoaderTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -409,6 +410,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
 				DEVELOPMENT_TEAM = Q4R2TCLPP5;
@@ -420,6 +422,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.elkorb.EssentialFeedTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;
 			};
 			name = Debug;
@@ -428,6 +431,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
 				DEVELOPMENT_TEAM = Q4R2TCLPP5;
