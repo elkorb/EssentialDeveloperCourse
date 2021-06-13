@@ -124,6 +124,7 @@ class RemoteFeedLoaderTests: XCTestCase {
             XCTAssertNil(instance, "Instance should have been deallocated. Potential memory leak.", file: file, line: line)
         }
     }
+    
     private func makeItem(id: UUID,
                           description: String? = nil,
                           location: String? = nil,
