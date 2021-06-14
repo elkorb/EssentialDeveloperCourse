@@ -23,3 +23,4 @@ public struct FeedItem: Equatable {
         self.imageURL = imageURL
     }
 }
+
