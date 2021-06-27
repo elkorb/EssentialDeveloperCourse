@@ -25,6 +25,7 @@
 		C4AFABDF2685CB7000289167 /* LocalFeedLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4AFABDE2685CB7000289167 /* LocalFeedLoader.swift */; };
 		C4AFABE12685CD5C00289167 /* FeedStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4AFABE02685CD5C00289167 /* FeedStore.swift */; };
 		C4AFABE32688A45900289167 /* RemoteFeedItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4AFABE22688A45900289167 /* RemoteFeedItem.swift */; };
+		C4AFABE52688A4A500289167 /* LocalFeedItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4AFABE42688A4A500289167 /* LocalFeedItem.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -66,6 +67,7 @@
 		C4AFABDE2685CB7000289167 /* LocalFeedLoader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalFeedLoader.swift; sourceTree = "<group>"; };
 		C4AFABE02685CD5C00289167 /* FeedStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedStore.swift; sourceTree = "<group>"; };
 		C4AFABE22688A45900289167 /* RemoteFeedItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RemoteFeedItem.swift; sourceTree = "<group>"; };
+		C4AFABE42688A4A500289167 /* LocalFeedItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalFeedItem.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -198,6 +200,7 @@
 			children = (
 				C4AFABDE2685CB7000289167 /* LocalFeedLoader.swift */,
 				C4AFABE02685CD5C00289167 /* FeedStore.swift */,
+				C4AFABE42688A4A500289167 /* LocalFeedItem.swift */,
 			);
 			path = "Feed Cache";
 			sourceTree = "<group>";
@@ -345,6 +348,7 @@
 				1CE2776026152C3200A93723 /* FeedLoader.swift in Sources */,
 				C4AFABE32688A45900289167 /* RemoteFeedItem.swift in Sources */,
 				1CE2776E2627175800A93723 /* RemoteFeedLoader.swift in Sources */,
+				C4AFABE52688A4A500289167 /* LocalFeedItem.swift in Sources */,
 				C4AFABE12685CD5C00289167 /* FeedStore.swift in Sources */,
 				C4AFABDF2685CB7000289167 /* LocalFeedLoader.swift in Sources */,
 				1CE27773262CE17600A93723 /* HTTPClient.swift in Sources */,
