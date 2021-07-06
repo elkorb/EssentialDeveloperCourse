@@ -116,7 +116,7 @@ class CodableFeedStoreTests: XCTestCase {
                 case let .found(feed: retrievedFeed, timestamp: retrievedTimestamp):
                     XCTAssertEqual(retrievedFeed, feed)
                     XCTAssertEqual(retrievedTimestamp, timestamp)
-
+                    
                 default:
                     XCTFail("Expected found result with feed \(feed) and timestamp \(timestamp), got \(retrieveResult) instead")
                 }
@@ -128,7 +128,9 @@ class CodableFeedStoreTests: XCTestCase {
     
     //MARK: Helpers
     
-    private func makeSUT() -> CodableFeedStore {
-       return CodableFeedStore()
-   }
+    private func makeSUT(file: StaticString = #filePath, line: UInt = #line) -> CodableFeedStore {
+        let sut = CodableFeedStore()
+        trackForMemoryLeaks(sut,file: file,line: line)
+        return sut
+    }
 }
