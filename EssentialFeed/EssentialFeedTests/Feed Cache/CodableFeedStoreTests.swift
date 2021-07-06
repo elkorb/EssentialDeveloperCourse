@@ -47,10 +47,13 @@ class CodableFeedStore {
         guard let data = try? Data(contentsOf: storeURL) else {
             return completion(.empty)
         }
-        
-        let decoder = JSONDecoder()
-        let cache = try! decoder.decode(Cache.self, from: data)
-        return completion(.found(feed: cache.localFeed, timestamp: cache.timestamp))
+        do {
+            let decoder = JSONDecoder()
+            let cache = try decoder.decode(Cache.self, from: data)
+            completion(.found(feed: cache.localFeed, timestamp: cache.timestamp))
+        } catch {
+            completion(.failure(error))
+        }
     }
     func insert(_ feed:[LocalFeedImage],timestamp:Date, completion: @escaping FeedStore.InsertionCompletion) {
         let encoder = JSONEncoder()
@@ -82,10 +85,10 @@ class CodableFeedStoreTests: XCTestCase {
     
     func test_retrieve_hasNoSideEffectsOnEmptyCache() {
         let sut = makeSUT()
-
+        
         expect(sut, toRetrieve: .empty)
         expect(sut, toRetrieve: .empty)
-
+        
     }
     
     func test_retrieve_deliversFoundValuesOnNonEmptyCache() {
@@ -102,12 +105,20 @@ class CodableFeedStoreTests: XCTestCase {
         let sut = makeSUT()
         let feed = uniqueImageFeed().local
         let timestamp = Date()
-                
+        
         insert((feed,timestamp), to: sut)
         
         expect(sut, toRetrieve: .found(feed: feed, timestamp: timestamp))
     }
-
+    
+    func test_retrieve_deliversFailureOnRetrievalError() {
+        let sut = makeSUT()
+        
+        try! "invalid data".write(to: testSpecificStoreURL(),atomically: false, encoding: .utf8)
+        
+        expect(sut, toRetrieve: .failure(anyNSError()))
+    }
+    
     // - MARK: Helpers
     
     private func makeSUT(file: StaticString = #filePath, line: UInt = #line) -> CodableFeedStore {
@@ -127,12 +138,12 @@ class CodableFeedStoreTests: XCTestCase {
     }
     
     private func expect(_ sut: CodableFeedStore, toRetrieve expectedResult: RetrieveCachedFeedResult,file: StaticString = #filePath, line: UInt = #line) {
-
+        
         let exp = expectation(description: "Wait for cache retrieval")
-
+        
         sut.retrieve { retrievedResult in
             switch (expectedResult, retrievedResult) {
-            case (.empty,.empty):
+            case (.empty,.empty),(.failure,.failure):
                 break
             case let (.found(feed: expectedFeed, timestamp: expectedTimestamp),.found(feed: retrievedFeed, timestamp: retrievedTimestamp)):
                 XCTAssertEqual(retrievedFeed, expectedFeed)
