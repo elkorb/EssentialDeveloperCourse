@@ -43,12 +43,7 @@ class CodableFeedStoreTests: XCTestCase, FailableFeedStore {
     
     func test_retrieve_hasNoSideEffectsOnNonEmptyCache() {
         let sut = makeSUT()
-        let feed = uniqueImageFeed().local
-        let timestamp = Date()
-        
-        insert((feed,timestamp), to: sut)
-        
-        expect(sut, toRetrieve: .found(feed: feed, timestamp: timestamp))
+        assertThatRetrieveHasNoSideEffectsOnNonEmptyCache(on:sut)
     }
     
     func test_retrieve_deliversFailureOnRetrievalError() {
@@ -57,12 +52,15 @@ class CodableFeedStoreTests: XCTestCase, FailableFeedStore {
         
         try! "invalid data".write(to: storeURL,atomically: false, encoding: .utf8)
         
-        expect(sut, toRetrieve: .failure(anyNSError()))
+        assertThatRetrieveDeliversFailureOnRetrievalError(on: sut)
     }
     
     func test_retrieve_hasNoSideEffectsOnFailure() {
+        let storeURL = testSpecificStoreURL()
         let sut = makeSUT()
-        assertThatRetrieveHasNoSideEffectsOnNonEmptyCache(on: sut)
+        try! "invalid data".write(to: storeURL, atomically: false, encoding: .utf8)
+        
+        assertThatRetrieveHasNoSideEffectsOnFailure(on: sut)
     }
     
     func test_insert_deliversNoErrorOnEmptyCache() {
